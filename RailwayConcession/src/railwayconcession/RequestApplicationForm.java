@@ -296,7 +296,6 @@ public class RequestApplicationForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (Status == null) {
             Status = new ViewApplicationStatus();
-
         }
         Status.setVisible(true);
         this.setVisible(false);
