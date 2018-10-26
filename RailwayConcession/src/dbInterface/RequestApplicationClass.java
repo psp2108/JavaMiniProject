@@ -29,15 +29,14 @@ public class RequestApplicationClass {
         String str = "select * from student_profile where sap_id = '" + CommonDataSet.SapId + "'";
         try {
             PreparedStatement st = CommonDataSet.conn.prepareStatement(str);
-            ResultSet rs=st.executeQuery();
-            while(rs.next())
-            {
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
                 Name = rs.getString(2);
                 Email = rs.getString(4);
                 StationFrom = rs.getString(5);
                 Department = rs.getString(6);
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(RequestApplicationClass.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -51,7 +50,16 @@ public class RequestApplicationClass {
     }
 
     public static boolean requestApplication() {
-        ApplicationMessage = "Your Application is waiting for approval";
+        try {
+            String str="call request_application('" + CommonDataSet.SapId + "'," + Class + " )";
+            PreparedStatement st = CommonDataSet.conn.prepareStatement(str);
+            ResultSet rs=st.executeQuery();
+            if(rs.next())
+                ApplicationMessage = rs.getString(1);
+        } catch (SQLException ex) {
+            Logger.getLogger(RequestApplicationClass.class.getName()).log(Level.SEVERE, null, ex);
+        }
+//        ApplicationMessage = "Your Application is waiting for approval";
 //        ApplicationRejectionMessage = "Application request has been enqueued";
 //        ApplicationRejectionMessage = "You have alread applied for 3 month Railway Concession";
         return true;
