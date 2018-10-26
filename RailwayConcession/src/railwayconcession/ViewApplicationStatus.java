@@ -158,7 +158,7 @@ public class ViewApplicationStatus extends javax.swing.JFrame {
         });
 
         AcceptanceStatusLabel.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        AcceptanceStatusLabel.setText("Not Appled");
+        AcceptanceStatusLabel.setText("Not Applied");
 
         BackBtn.setText("Back");
         BackBtn.addActionListener(new java.awt.event.ActionListener() {
