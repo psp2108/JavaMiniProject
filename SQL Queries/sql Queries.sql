@@ -150,7 +150,7 @@ SET is_rejected = (SELECT COUNT(*) from rail_concess where sap_id = sap_id_ip an
 
 set curr_date = (select now());
 
-	if(is_accepted > 0 OR rejected > 0) THEN
+	if(is_accepted > 0 OR is_rejected > 0) THEN
 		set last_date = (select approved_till from rail_concess where sap_id = sap_id_ip 
                          and application_status = 1
                          order by approved_till desc
