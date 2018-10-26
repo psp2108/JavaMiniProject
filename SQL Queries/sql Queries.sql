@@ -28,3 +28,26 @@ status int DEFAULT 0,
 PRIMARY KEY(rc_id),
 FOREIGN KEY (sap_id) REFERENCES student_profile(sap_id)
 );
+
+
+#---------------
+# Procedures
+
+
+DELIMITER //
+CREATE OR REPLACE PROCEDURE `credential_check`(
+IN sap_id_ip varchar(12),
+IN student_password_ip varchar(255)
+)
+
+BEGIN
+
+    IF(select * from student_profile where 
+       sap_id=sap_id_ip && student_password=student_password_ip) THEN 
+    
+    	SELECT "true";
+    ELSE
+    	SELECT "false";
+    END IF;
+
+END //
