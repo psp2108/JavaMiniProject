@@ -1,0 +1,5 @@
+credential_check(sap, pwd)
+show_app_status(sap)
+request_application(sap, class)
+status_change(rc_id, status_ip)
+pending_status(status_ip)

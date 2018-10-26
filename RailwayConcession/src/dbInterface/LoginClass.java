@@ -5,13 +5,27 @@
  */
 package dbInterface;
 
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Pratik Panchal
  */
-public class LoginClass {    
-    public static boolean checkCredentials(String sap, String pwd){
+public class LoginClass {
+
+    public static boolean checkCredentials(String sap, String pwd) {
         CommonDataSet.SapId = sap;
-        return true;
+        try {
+            PreparedStatement st = CommonDataSet.conn.prepareStatement("call credential_check('" + CommonDataSet.SapId + "','" + pwd + "')");
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                return rs.getBoolean(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginClass.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 }
