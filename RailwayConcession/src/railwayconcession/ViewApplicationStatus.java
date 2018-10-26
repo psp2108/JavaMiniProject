@@ -4,11 +4,9 @@
  * and open the template in the editor.
  */
 package railwayconcession;
+import dbInterface.*;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author Pratik Panchal
- */
 public class ViewApplicationStatus extends javax.swing.JFrame {
 
     static RequestApplicationForm Request = null;
@@ -20,6 +18,34 @@ public class ViewApplicationStatus extends javax.swing.JFrame {
         initComponents();
         if (RequestApplicationForm.Status == null) {
             RequestApplicationForm.Status = this;
+        }
+        if (ViewApplicationStatusClass.fetchStatus()) {
+            NameIP.setText(ViewApplicationStatusClass.Name);
+            SapIP.setText(CommonDataSet.SapId);
+            StationToIP.setText(ViewApplicationStatusClass.StationTo);
+            StationFromIP.setText(ViewApplicationStatusClass.StationFrom);
+            EmailIP.setText(ViewApplicationStatusClass.Email);
+            DepartmentIP.setText(ViewApplicationStatusClass.Department);
+            if (ViewApplicationStatusClass.Class == 1) {
+                ClassIP.setText("First Class");
+            } else {
+                ClassIP.setText("Second Class");
+            }
+            
+            switch (ViewApplicationStatusClass.Status){
+                case -1:
+                    AcceptanceStatusLabel.setText("Rejected");
+                    break;
+                case 0:
+                    
+                    break;
+                case 1:
+                    
+                    break;
+            }
+            
+        } else {
+            JOptionPane.showMessageDialog(this, "Databse Connectivity Error");
         }
     }
 
@@ -71,42 +97,49 @@ public class ViewApplicationStatus extends javax.swing.JFrame {
 
         ClassLabel.setText("Class");
 
+        SapIP.setEditable(false);
         SapIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SapIPActionPerformed(evt);
             }
         });
 
+        StationToIP.setEditable(false);
         StationToIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 StationToIPActionPerformed(evt);
             }
         });
 
+        StationFromIP.setEditable(false);
         StationFromIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 StationFromIPActionPerformed(evt);
             }
         });
 
+        EmailIP.setEditable(false);
         EmailIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EmailIPActionPerformed(evt);
             }
         });
 
+        DepartmentIP.setEditable(false);
         DepartmentIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DepartmentIPActionPerformed(evt);
             }
         });
 
+        NameIP.setEditable(false);
         NameIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NameIPActionPerformed(evt);
             }
         });
 
+        ClassIP.setEditable(false);
         ClassIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ClassIPActionPerformed(evt);

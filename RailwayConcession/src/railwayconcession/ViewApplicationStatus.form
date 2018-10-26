@@ -181,36 +181,57 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="SapIP">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SapIPActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="StationToIP">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="StationToIPActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="StationFromIP">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="StationFromIPActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="EmailIP">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EmailIPActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="DepartmentIP">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DepartmentIPActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="NameIP">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NameIPActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="ClassIP">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ClassIPActionPerformed"/>
           </Events>

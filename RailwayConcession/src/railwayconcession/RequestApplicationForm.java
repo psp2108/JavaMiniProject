@@ -5,6 +5,9 @@
  */
 package railwayconcession;
 
+import dbInterface.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Pratik Panchal
@@ -20,6 +23,21 @@ public class RequestApplicationForm extends javax.swing.JFrame {
         initComponents();
         if (ViewApplicationStatus.Request == null) {
             ViewApplicationStatus.Request = this;
+        }
+        if (RequestApplicationClass.fetchValues()) {
+            NameIP.setText(RequestApplicationClass.Name);
+            SapIP.setText(CommonDataSet.SapId);
+            StationToIP.setText(RequestApplicationClass.StationTo);
+            StationFromIP.setText(RequestApplicationClass.StationFrom);
+            EmailIP.setText(RequestApplicationClass.Email);
+            DepartmentIP.setText(RequestApplicationClass.Department);
+            if (RequestApplicationClass.Class == 1) {
+                FClassRadio.setSelected(true);
+            } else {
+                SClassRadio.setSelected(true);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Databse Connectivity Error");
         }
     }
 
@@ -48,7 +66,7 @@ public class RequestApplicationForm extends javax.swing.JFrame {
         StationToIP = new javax.swing.JTextField();
         StationFromIP = new javax.swing.JTextField();
         EmailIP = new javax.swing.JTextField();
-        DepqartmentIP = new javax.swing.JTextField();
+        DepartmentIP = new javax.swing.JTextField();
         NameIP = new javax.swing.JTextField();
         ApplyBtn = new javax.swing.JButton();
         ShowStatusBtn = new javax.swing.JButton();
@@ -82,38 +100,50 @@ public class RequestApplicationForm extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(SClassRadio);
+        SClassRadio.setSelected(true);
         SClassRadio.setText("Second Class");
+        SClassRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SClassRadioActionPerformed(evt);
+            }
+        });
 
+        SapIP.setEditable(false);
         SapIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SapIPActionPerformed(evt);
             }
         });
 
+        StationToIP.setEditable(false);
         StationToIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 StationToIPActionPerformed(evt);
             }
         });
 
+        StationFromIP.setEditable(false);
         StationFromIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 StationFromIPActionPerformed(evt);
             }
         });
 
+        EmailIP.setEditable(false);
         EmailIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EmailIPActionPerformed(evt);
             }
         });
 
-        DepqartmentIP.addActionListener(new java.awt.event.ActionListener() {
+        DepartmentIP.setEditable(false);
+        DepartmentIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DepqartmentIPActionPerformed(evt);
+                DepartmentIPActionPerformed(evt);
             }
         });
 
+        NameIP.setEditable(false);
         NameIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NameIPActionPerformed(evt);
@@ -121,6 +151,11 @@ public class RequestApplicationForm extends javax.swing.JFrame {
         });
 
         ApplyBtn.setText("Apply");
+        ApplyBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ApplyBtnActionPerformed(evt);
+            }
+        });
 
         ShowStatusBtn.setText("Show Status");
         ShowStatusBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -158,7 +193,7 @@ public class RequestApplicationForm extends javax.swing.JFrame {
                             .addComponent(StationToIP)
                             .addComponent(StationFromIP)
                             .addComponent(EmailIP)
-                            .addComponent(DepqartmentIP))
+                            .addComponent(DepartmentIP))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(ShowStatusBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -189,7 +224,7 @@ public class RequestApplicationForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DepartmentLabel)
-                    .addComponent(DepqartmentIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DepartmentIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ClassLabel)
@@ -230,6 +265,7 @@ public class RequestApplicationForm extends javax.swing.JFrame {
 
     private void FClassRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FClassRadioActionPerformed
         // TODO add your handling code here:
+        RequestApplicationClass.Class = 1;
     }//GEN-LAST:event_FClassRadioActionPerformed
 
     private void SapIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SapIPActionPerformed
@@ -248,9 +284,9 @@ public class RequestApplicationForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_EmailIPActionPerformed
 
-    private void DepqartmentIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepqartmentIPActionPerformed
+    private void DepartmentIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepartmentIPActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_DepqartmentIPActionPerformed
+    }//GEN-LAST:event_DepartmentIPActionPerformed
 
     private void NameIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameIPActionPerformed
         // TODO add your handling code here:
@@ -265,6 +301,20 @@ public class RequestApplicationForm extends javax.swing.JFrame {
         Status.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_ShowStatusBtnActionPerformed
+
+    private void ApplyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApplyBtnActionPerformed
+        // TODO add your handling code here:
+        if (RequestApplicationClass.requestApplication()) {
+            JOptionPane.showMessageDialog(this, RequestApplicationClass.ApplicationMessage);
+        } else {
+            JOptionPane.showMessageDialog(this, RequestApplicationClass.ApplicationMessage);
+        }
+    }//GEN-LAST:event_ApplyBtnActionPerformed
+
+    private void SClassRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SClassRadioActionPerformed
+        // TODO add your handling code here:
+        RequestApplicationClass.Class = 2;
+    }//GEN-LAST:event_SClassRadioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,8 +354,8 @@ public class RequestApplicationForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ApplyBtn;
     private javax.swing.JLabel ClassLabel;
+    private javax.swing.JTextField DepartmentIP;
     private javax.swing.JLabel DepartmentLabel;
-    private javax.swing.JTextField DepqartmentIP;
     private javax.swing.JTextField EmailIP;
     private javax.swing.JLabel EmailLabel;
     private javax.swing.JRadioButton FClassRadio;

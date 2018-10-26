@@ -9,9 +9,6 @@ package dbInterface;
  *
  * @author Pratik Panchal
  */
-public class LoginClass {    
-    public static boolean checkCredentials(String sap, String pwd){
-        CommonDataSet.SapId = sap;
-        return true;
-    }
+public class CommonDataSet {
+    public static String SapId;
 }
