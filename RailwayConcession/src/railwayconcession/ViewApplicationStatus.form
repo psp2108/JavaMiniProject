@@ -26,9 +26,9 @@
           <Group type="102" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="20" max="32767" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
@@ -38,10 +38,10 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="22" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -62,38 +62,39 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="ClassLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="NameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="SapLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="StationToLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="StationFromLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="EmailLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="DepartmentLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="ClassLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="NameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="SapLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="StationToLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="StationFromLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="EmailLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="DepartmentLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="DepartmentIP" alignment="0" pref="164" max="32767" attributes="0"/>
+                                      <Component id="EmailIP" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="StationFromIP" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="SapIP" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="StationToIP" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="NameIP" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="ClassIP" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="BackBtn" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="DepartmentIP" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
-                              <Component id="EmailIP" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
-                              <Component id="StationFromIP" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
-                              <Component id="SapIP" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
-                              <Component id="StationToIP" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
-                              <Component id="NameIP" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
-                              <Component id="ClassIP" min="-2" pref="164" max="-2" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="BackBtn" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                      <Component id="StatusPanel" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="AcceptanceStatusLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -135,9 +136,9 @@
                       <Component id="ClassLabel" min="-2" max="-2" attributes="0"/>
                       <Component id="ClassIP" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="StatusPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="AcceptanceStatusLabel" min="-2" pref="26" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="BackBtn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -236,14 +237,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ClassIPActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="AcceptanceStatusLabel">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Calibri" size="24" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Not Applied"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="BackBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Back"/>
@@ -252,6 +245,39 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BackBtnActionPerformed"/>
           </Events>
         </Component>
+        <Container class="javax.swing.JPanel" name="StatusPanel">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace pref="63" max="32767" attributes="0"/>
+                      <Component id="AcceptanceStatusLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="63" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="AcceptanceStatusLabel" min="-2" pref="26" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="AcceptanceStatusLabel">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Calibri" size="24" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Not Applied"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>
