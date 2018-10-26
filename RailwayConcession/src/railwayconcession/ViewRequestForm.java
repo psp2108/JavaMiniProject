@@ -164,7 +164,7 @@ public class ViewRequestForm extends javax.swing.JFrame {
 
     private void RejectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RejectBtnActionPerformed
         // TODO add your handling code here:
-        if (ViewRequestsClass.changeStatus(rc_id, 0)) {
+        if (ViewRequestsClass.changeStatus(rc_id, -1)) {
             try {
                 PendingRequestJTable.setModel(fill.fillMyJTable(tableQuery));
             } catch (Exception ex) {
