@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package railwayconcession;
+
 import dbInterface.*;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -32,8 +33,8 @@ public class ViewApplicationStatus extends javax.swing.JFrame {
             } else {
                 ClassIP.setText("Second Class");
             }
-            
-            switch (ViewApplicationStatusClass.Status){
+
+            switch (ViewApplicationStatusClass.Status) {
                 case -1:
                     AcceptanceStatusLabel.setText("Rejected");
                     AcceptanceStatusLabel.setBackground(Color.red);
@@ -50,8 +51,11 @@ public class ViewApplicationStatus extends javax.swing.JFrame {
                     AcceptanceStatusLabel.setForeground(Color.black);
                     break;
             }
-            
+
         } else {
+            AcceptanceStatusLabel.setText("Not Applied");
+            AcceptanceStatusLabel.setBackground(Color.gray);
+            AcceptanceStatusLabel.setForeground(Color.black);
             JOptionPane.showMessageDialog(this, "Databse Connectivity Error");
         }
     }
