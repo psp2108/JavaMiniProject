@@ -26,7 +26,7 @@ public class ViewRequestForm extends javax.swing.JFrame {
     public ViewRequestForm() {
         initComponents();
         fill = new JTableFill(CommonDataSet.conn);
-        tableQuery = "select * from rail_concess";
+        tableQuery = "call pending_status(0)";
         try {
             PendingRequestJTable.setModel(fill.fillMyJTable(tableQuery));
         } catch (Exception ex) {
