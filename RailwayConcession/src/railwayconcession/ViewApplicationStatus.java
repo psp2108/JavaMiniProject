@@ -37,10 +37,11 @@ public class ViewApplicationStatus extends javax.swing.JFrame {
                     AcceptanceStatusLabel.setText("Rejected");
                     break;
                 case 0:
+                    AcceptanceStatusLabel.setText("Pending");
                     
                     break;
                 case 1:
-                    
+                    AcceptanceStatusLabel.setText("Accepted");
                     break;
             }
             
