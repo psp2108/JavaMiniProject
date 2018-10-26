@@ -56,7 +56,7 @@ public class ViewApplicationStatus extends javax.swing.JFrame {
             AcceptanceStatusLabel.setText("Not Applied");
             StatusPanel.setBackground(Color.gray);
             AcceptanceStatusLabel.setForeground(Color.black);
-            JOptionPane.showMessageDialog(this, "Databse Connectivity Error");
+            JOptionPane.showMessageDialog(this, "No Requests Found");
         }
     }
 

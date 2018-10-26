@@ -306,6 +306,7 @@ public class RequestApplicationForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (RequestApplicationClass.requestApplication()) {
             JOptionPane.showMessageDialog(this, RequestApplicationClass.ApplicationMessage);
+            Status = null;
         } else {
             JOptionPane.showMessageDialog(this, RequestApplicationClass.ApplicationMessage);
         }
