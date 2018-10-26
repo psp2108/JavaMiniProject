@@ -5,10 +5,6 @@
  */
 package dbInterface;
 
-/**
- *
- * @author Pratik Panchal
- */
 public class ViewApplicationStatusClass {
 
     public static String Name;
@@ -25,7 +21,7 @@ public class ViewApplicationStatusClass {
         StationFrom = "Badlapur";
         Email = "pratik.sp.1112@gmail.com";
         Department = "Computer";
-        Status = -1;
+        Status = 1;
         Class = 1;        
         return true;
     }
