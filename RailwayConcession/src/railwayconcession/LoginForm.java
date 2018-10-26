@@ -5,10 +5,9 @@
  */
 package railwayconcession;
 
-/**
- *
- * @author Pratik Panchal
- */
+import dbInterface.*;
+import javax.swing.JOptionPane;
+
 public class LoginForm extends javax.swing.JFrame {
 
     /**
@@ -41,6 +40,11 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel1.setText("LOGIN");
 
         LoginBtn.setText("Login");
+        LoginBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginBtnActionPerformed(evt);
+            }
+        });
 
         SapLabel.setText("SAP");
 
@@ -117,6 +121,28 @@ public class LoginForm extends javax.swing.JFrame {
     private void SapIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SapIPActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SapIPActionPerformed
+
+    private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBtnActionPerformed
+        // TODO add your handling code here:
+
+        String sap, pwd;
+        sap = SapIP.getText();
+        pwd = new String(PwdIP.getPassword());
+        System.out.println(sap);
+        System.out.println(pwd);
+        
+        if (sap.equals("60004188000") && pwd.equals("admin")) {
+            new ViewRequestForm().setVisible(true);
+            this.setVisible(false);
+        } else {
+            if (LoginClass.checkCredentials(sap, pwd)) {
+                new RequestApplicationForm().setVisible(true);;
+                this.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(this, "Wrong Credentials Entered");
+            }
+        }
+    }//GEN-LAST:event_LoginBtnActionPerformed
 
     /**
      * @param args the command line arguments

@@ -11,11 +11,16 @@ package railwayconcession;
  */
 public class RequestApplicationForm extends javax.swing.JFrame {
 
+    static ViewApplicationStatus Status = null;
+
     /**
      * Creates new form RequestApplicationForm
      */
     public RequestApplicationForm() {
         initComponents();
+        if (ViewApplicationStatus.Request == null) {
+            ViewApplicationStatus.Request = this;
+        }
     }
 
     /**
@@ -46,6 +51,7 @@ public class RequestApplicationForm extends javax.swing.JFrame {
         DepqartmentIP = new javax.swing.JTextField();
         NameIP = new javax.swing.JTextField();
         ApplyBtn = new javax.swing.JButton();
+        ShowStatusBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,6 +122,13 @@ public class RequestApplicationForm extends javax.swing.JFrame {
 
         ApplyBtn.setText("Apply");
 
+        ShowStatusBtn.setText("Show Status");
+        ShowStatusBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowStatusBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -123,6 +136,7 @@ public class RequestApplicationForm extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ApplyBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ClassLabel)
@@ -133,18 +147,20 @@ public class RequestApplicationForm extends javax.swing.JFrame {
                             .addComponent(EmailLabel)
                             .addComponent(DepartmentLabel))
                         .addGap(21, 21, 21)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(DepqartmentIP, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(EmailIP, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(StationFromIP, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SapIP, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(StationToIP, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NameIP, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(NameIP)
+                            .addComponent(SapIP)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(FClassRadio)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SClassRadio))))
-                    .addComponent(ApplyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(SClassRadio)
+                                .addGap(0, 39, Short.MAX_VALUE))
+                            .addComponent(StationToIP)
+                            .addComponent(StationFromIP)
+                            .addComponent(EmailIP)
+                            .addComponent(DepqartmentIP))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(ShowStatusBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -181,6 +197,8 @@ public class RequestApplicationForm extends javax.swing.JFrame {
                     .addComponent(SClassRadio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ApplyBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ShowStatusBtn)
                 .addContainerGap())
         );
 
@@ -189,9 +207,9 @@ public class RequestApplicationForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(73, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -200,9 +218,9 @@ public class RequestApplicationForm extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -237,6 +255,16 @@ public class RequestApplicationForm extends javax.swing.JFrame {
     private void NameIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameIPActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NameIPActionPerformed
+
+    private void ShowStatusBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowStatusBtnActionPerformed
+        // TODO add your handling code here:
+        if (Status == null) {
+            Status = new ViewApplicationStatus();
+
+        }
+        Status.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_ShowStatusBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,6 +314,7 @@ public class RequestApplicationForm extends javax.swing.JFrame {
     private javax.swing.JRadioButton SClassRadio;
     private javax.swing.JTextField SapIP;
     private javax.swing.JLabel SapLabel;
+    private javax.swing.JButton ShowStatusBtn;
     private javax.swing.JTextField StationFromIP;
     private javax.swing.JLabel StationFromLabel;
     private javax.swing.JTextField StationToIP;

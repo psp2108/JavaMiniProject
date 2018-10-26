@@ -28,9 +28,9 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace pref="73" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="74" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
@@ -42,9 +42,9 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -69,7 +69,8 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Component id="ApplyBtn" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="ClassLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="NameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -80,21 +81,23 @@
                               <Component id="DepartmentLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="DepqartmentIP" min="-2" pref="164" max="-2" attributes="0"/>
-                              <Component id="EmailIP" min="-2" pref="164" max="-2" attributes="0"/>
-                              <Component id="StationFromIP" min="-2" pref="164" max="-2" attributes="0"/>
-                              <Component id="SapIP" min="-2" pref="164" max="-2" attributes="0"/>
-                              <Component id="StationToIP" min="-2" pref="164" max="-2" attributes="0"/>
-                              <Component id="NameIP" min="-2" pref="164" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="NameIP" alignment="0" max="32767" attributes="0"/>
+                              <Component id="SapIP" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
                                   <Component id="FClassRadio" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="SClassRadio" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="39" max="32767" attributes="0"/>
                               </Group>
+                              <Component id="StationToIP" alignment="0" max="32767" attributes="0"/>
+                              <Component id="StationFromIP" alignment="0" max="32767" attributes="0"/>
+                              <Component id="EmailIP" alignment="0" max="32767" attributes="0"/>
+                              <Component id="DepqartmentIP" alignment="0" max="32767" attributes="0"/>
                           </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="ApplyBtn" alignment="0" min="-2" pref="246" max="-2" attributes="0"/>
+                      <Component id="ShowStatusBtn" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -141,6 +144,8 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="ApplyBtn" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="ShowStatusBtn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -235,6 +240,14 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Apply"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="ShowStatusBtn">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Show Status"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ShowStatusBtnActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

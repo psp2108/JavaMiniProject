@@ -11,11 +11,16 @@ package railwayconcession;
  */
 public class ViewApplicationStatus extends javax.swing.JFrame {
 
+    static RequestApplicationForm Request = null;
+
     /**
      * Creates new form ViewApplicationStatus
      */
     public ViewApplicationStatus() {
         initComponents();
+        if (RequestApplicationForm.Status == null) {
+            RequestApplicationForm.Status = this;
+        }
     }
 
     /**
@@ -44,6 +49,7 @@ public class ViewApplicationStatus extends javax.swing.JFrame {
         NameIP = new javax.swing.JTextField();
         ClassIP = new javax.swing.JTextField();
         AcceptanceStatusLabel = new javax.swing.JLabel();
+        BackBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,22 +115,29 @@ public class ViewApplicationStatus extends javax.swing.JFrame {
 
         AcceptanceStatusLabel.setText("Not Appled");
 
+        BackBtn.setText("Back");
+        BackBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ClassLabel)
-                    .addComponent(NameLabel)
-                    .addComponent(SapLabel)
-                    .addComponent(StationToLabel)
-                    .addComponent(StationFromLabel)
-                    .addComponent(EmailLabel)
-                    .addComponent(DepartmentLabel))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ClassLabel)
+                            .addComponent(NameLabel)
+                            .addComponent(SapLabel)
+                            .addComponent(StationToLabel)
+                            .addComponent(StationFromLabel)
+                            .addComponent(EmailLabel)
+                            .addComponent(DepartmentLabel))
                         .addGap(21, 21, 21)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(DepartmentIP, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -132,10 +145,9 @@ public class ViewApplicationStatus extends javax.swing.JFrame {
                             .addComponent(StationFromIP, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SapIP, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(StationToIP, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NameIP, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ClassIP, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(NameIP, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ClassIP, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(BackBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -175,6 +187,8 @@ public class ViewApplicationStatus extends javax.swing.JFrame {
                     .addComponent(ClassIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(AcceptanceStatusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BackBtn)
                 .addContainerGap())
         );
 
@@ -198,7 +212,7 @@ public class ViewApplicationStatus extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -231,6 +245,16 @@ public class ViewApplicationStatus extends javax.swing.JFrame {
     private void ClassIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClassIPActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ClassIPActionPerformed
+
+    private void BackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtnActionPerformed
+        // TODO add your handling code here:
+        if (Request == null) {
+            Request = new RequestApplicationForm();
+
+        }
+        Request.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BackBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -269,6 +293,7 @@ public class ViewApplicationStatus extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AcceptanceStatusLabel;
+    private javax.swing.JButton BackBtn;
     private javax.swing.JTextField ClassIP;
     private javax.swing.JLabel ClassLabel;
     private javax.swing.JTextField DepartmentIP;
