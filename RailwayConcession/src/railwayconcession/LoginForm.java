@@ -6,6 +6,7 @@
 package railwayconcession;
 
 import dbInterface.*;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
 
 public class LoginForm extends javax.swing.JFrame {
