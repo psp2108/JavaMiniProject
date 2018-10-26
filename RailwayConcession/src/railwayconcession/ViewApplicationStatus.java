@@ -5,6 +5,7 @@
  */
 package railwayconcession;
 import dbInterface.*;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 public class ViewApplicationStatus extends javax.swing.JFrame {
@@ -35,13 +36,18 @@ public class ViewApplicationStatus extends javax.swing.JFrame {
             switch (ViewApplicationStatusClass.Status){
                 case -1:
                     AcceptanceStatusLabel.setText("Rejected");
+                    AcceptanceStatusLabel.setBackground(Color.red);
+                    AcceptanceStatusLabel.setForeground(Color.white);
                     break;
                 case 0:
                     AcceptanceStatusLabel.setText("Pending");
-                    
+                    AcceptanceStatusLabel.setBackground(Color.blue);
+                    AcceptanceStatusLabel.setForeground(Color.white);
                     break;
                 case 1:
                     AcceptanceStatusLabel.setText("Accepted");
+                    AcceptanceStatusLabel.setBackground(Color.green);
+                    AcceptanceStatusLabel.setForeground(Color.black);
                     break;
             }
             
@@ -147,6 +153,7 @@ public class ViewApplicationStatus extends javax.swing.JFrame {
             }
         });
 
+        AcceptanceStatusLabel.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         AcceptanceStatusLabel.setText("Not Appled");
 
         BackBtn.setText("Back");

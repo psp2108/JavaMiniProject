@@ -25,7 +25,7 @@ public class ViewApplicationStatusClass {
         StationFrom = "Badlapur";
         Email = "pratik.sp.1112@gmail.com";
         Department = "Computer";
-        Status = 0;
+        Status = 1;
         Class = 1;        
         return true;
     }
