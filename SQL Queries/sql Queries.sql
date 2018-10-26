@@ -1,8 +1,8 @@
-sql queries
--------------------------------------------
-DATABASE :: railwayconcession 
---------------------------------------------
-    CREATION OF STUDENT PROFILE TABLE
+#-------------------------------------------
+#DATABASE :: railwayconcession 
+#--------------------------------------------
+
+#    CREATION OF STUDENT PROFILE TABLE
 	
 create table Student_Profile(
 sap_id varchar(12) NOT NULL,
@@ -13,8 +13,10 @@ hometown varchar(255) NOT NULL,
 department varchar(255) NOT NULL,
 PRIMARY KEY(sap_id)
 );
------------------------------------------------
-	CREATION OF railwayconcession table
+
+#-----------------------------------------------
+#	CREATION OF railwayconcession table
+
 create table rail_concess(
 sap_id varchar(12) NOT NULL,
 rc_id int NOT NULL AUTO_INCREMENT,
