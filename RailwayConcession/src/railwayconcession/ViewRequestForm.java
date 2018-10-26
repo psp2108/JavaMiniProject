@@ -5,17 +5,33 @@
  */
 package railwayconcession;
 
-/**
- *
- * @author Pratik Panchal
- */
+import java.sql.Connection;
+import MySQLConnectionPackage.*;
+import dbInterface.CommonDataSet;
+import dbInterface.ViewRequestsClass;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.TableModel;
+
 public class ViewRequestForm extends javax.swing.JFrame {
+
+    String sap, rc_id;
+    JTableFill fill;
+    String tableQuery;
 
     /**
      * Creates new form ViewRequestForm
      */
     public ViewRequestForm() {
         initComponents();
+        fill = new JTableFill(CommonDataSet.conn);
+        tableQuery = "select * from rail_concess";
+        try {
+            PendingRequestJTable.setModel(fill.fillMyJTable(tableQuery));
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
     }
 
     /**
@@ -27,21 +43,137 @@ public class ViewRequestForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        AcceptBtn = new javax.swing.JButton();
+        RejectBtn = new javax.swing.JButton();
+        SabLabel = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        PendingRequestJTable = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLabel1.setText("PENDING REQUESTS");
+        jLabel1.setName(""); // NOI18N
+
+        AcceptBtn.setText("Accept");
+        AcceptBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AcceptBtnActionPerformed(evt);
+            }
+        });
+
+        RejectBtn.setText("Reject");
+        RejectBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RejectBtnActionPerformed(evt);
+            }
+        });
+
+        SabLabel.setText("SAP ID: ");
+
+        PendingRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        PendingRequestJTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PendingRequestJTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(PendingRequestJTable);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(SabLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(RejectBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(AcceptBtn)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(3, 3, 3)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AcceptBtn)
+                    .addComponent(RejectBtn)
+                    .addComponent(SabLabel))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void PendingRequestJTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PendingRequestJTableMouseClicked
+        // TODO add your handling code here:
+        int row = PendingRequestJTable.getSelectedRow();
+        TableModel model = PendingRequestJTable.getModel();
+        sap = model.getValueAt(row, 0).toString();
+        rc_id = model.getValueAt(row, 1).toString();
+        SabLabel.setText("SAP ID: " + sap);
+    }//GEN-LAST:event_PendingRequestJTableMouseClicked
+
+    private void AcceptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AcceptBtnActionPerformed
+        // TODO add your handling code here:
+        if (ViewRequestsClass.changeStatus(rc_id, 1)) {
+            try {
+                PendingRequestJTable.setModel(fill.fillMyJTable(tableQuery));
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Failed to change status");
+        }
+    }//GEN-LAST:event_AcceptBtnActionPerformed
+
+    private void RejectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RejectBtnActionPerformed
+        // TODO add your handling code here:
+        if (ViewRequestsClass.changeStatus(rc_id, 0)) {
+            try {
+                PendingRequestJTable.setModel(fill.fillMyJTable(tableQuery));
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Failed to change status");
+        }
+    }//GEN-LAST:event_RejectBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +211,12 @@ public class ViewRequestForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AcceptBtn;
+    private javax.swing.JTable PendingRequestJTable;
+    private javax.swing.JButton RejectBtn;
+    private javax.swing.JLabel SabLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

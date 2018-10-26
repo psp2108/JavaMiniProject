@@ -5,8 +5,8 @@
  */
 package railwayconcession;
 
+import MySQLConnectionPackage.*;
 import dbInterface.*;
-import java.sql.Connection;
 import javax.swing.JOptionPane;
 
 public class LoginForm extends javax.swing.JFrame {
@@ -16,6 +16,7 @@ public class LoginForm extends javax.swing.JFrame {
      */
     public LoginForm() {
         initComponents();
+        CommonDataSet.conn = ConnecToMySql.getConnection();
     }
 
     /**

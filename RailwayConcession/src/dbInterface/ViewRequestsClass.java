@@ -5,13 +5,12 @@
  */
 package dbInterface;
 
-import java.sql.Connection;
-
 /**
  *
  * @author Pratik Panchal
  */
-public class CommonDataSet {
-    public static String SapId;
-    public static Connection conn;
+public class ViewRequestsClass {
+    public static boolean changeStatus(String rcid, int status){
+        return true;
+    }
 }
