@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2018 at 06:35 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Generation Time: Oct 27, 2018 at 04:36 AM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -209,8 +209,57 @@ CREATE TABLE `student_profile` (
 --
 
 INSERT INTO `student_profile` (`sap_id`, `student_name`, `student_password`, `email`, `hometown`, `department`) VALUES
-('60004188006', 'Pratik Panchal', '1234', 'pratik.sp.1112@gmail.com', 'Badlapur', 'Comps'),
-('60004188022', 'Rucha Shinde', '1234', 'rucha@gmail.com', 'Thane', 'Comps');
+('60004188001', 'Prem Bhajaj', '1234', 'Prem@gmail.com', 'Govandi', 'Comps'),
+('60004188002', 'Ankit Gupta', '1234', 'Ankit@gmail.com', 'Mankhurd', 'Comps'),
+('60004188003', 'Harshil Vakharia', '1234', 'Harshil@gmail.com', 'Vashi', 'Comps'),
+('60004188004', 'Madhura Shanbhag', '1234', 'Madhura@gmail.com', 'Sanpada', 'Comps'),
+('60004188005', 'Harsh Mistry', '1234', 'Harsh@gmail.com', 'Juinagar', 'Comps'),
+('60004188006', 'Shanay Panchal', '1234', 'Shanay@gmail.com', 'Nerul', 'Comps'),
+('60004188007', 'Pratik Shah', '1234', 'Pratik@gmail.com', 'Seawoods-Darave', 'Comps'),
+('60004188008', 'Fenil Gholani', '1234', 'Fenil@gmail.com', 'CBD Belapur', 'Comps'),
+('60004188009', 'Atharva Tawate', '1234', 'Atharva@gmail.com', 'Kharghar', 'Comps'),
+('60004188010', 'Dharmik Parikh', '1234', 'Dharmik@gmail.com', 'Mansarovar', 'Comps'),
+('60004188011', 'Divya Shah', '1234', 'Divya@gmail.com', 'Khandeshwar', 'Comps'),
+('60004188012', 'Kirti Gupta', '1234', 'Kirti@gmail.com', 'Panvel', 'Comps'),
+('60004188013', 'Ananya Malik', '1234', 'Ananya@gmail.com', 'Churchgate', 'Comps'),
+('60004188014', 'Arnav Parekhji', '1234', 'Arnav@gmail.com', 'Marine Lines', 'Comps'),
+('60004188015', 'Heet Kanani', '1234', 'Heet@gmail.com', 'Charni Road', 'Comps'),
+('60004188016', 'Amogh Parab', '1234', 'Amogh@gmail.com', 'Grant Road', 'Comps'),
+('60004188017', 'Ayush Shah', '1234', 'Ayush@gmail.com', 'Mumbai Central', 'Comps'),
+('60004188018', 'Harshil Jhaveri', '1234', 'Harshil@gmail.com', 'Mahalaxmi', 'Comps'),
+('60004188019', 'Jashan Singh Banga', '1234', 'Jashan Singh@gmail.com', 'Lower Parel', 'Comps'),
+('60004188020', 'Jay Shah', '1234', 'Jay@gmail.com', 'Elphinstone Road', 'Comps'),
+('60004188021', 'Kaustubh Shinde', '1234', 'Kaustubh@gmail.com', 'Dadar', 'Comps'),
+('60004188022', 'Jash Kekre', '1234', 'Jash@gmail.com', 'Matunga Road', 'Comps'),
+('60004188023', 'Rucha Amin', '1234', 'Rucha@gmail.com', 'Mahim', 'Comps'),
+('60004188024', 'Hrishikesh Shenai', '1234', 'Hrishikesh@gmail.com', 'Bandra', 'Comps'),
+('60004188025', 'Arnesh Vaidya', '1234', 'Arnesh@gmail.com', 'Khar Road', 'Comps'),
+('60004188026', 'Jai Mehta', '1234', 'Jai@gmail.com', 'Santacruz', 'Comps'),
+('60004188027', 'Dhyey Thumar', '1234', 'Dhyey@gmail.com', 'Andheri', 'Comps'),
+('60004188028', 'Ayushi Lodaria', '1234', 'Ayushi@gmail.com', 'Andheri', 'Comps'),
+('60004188029', 'Dhairya Shah', '1234', 'Dhairya@gmail.com', 'Jogeshwari', 'Comps'),
+('60004188030', 'Pranjal Chitale', '1234', 'Pranjal@gmail.com', 'Goregaon', 'Comps'),
+('60004188031', 'Jainam Shah', '1234', 'Jainam@gmail.com', 'Malad', 'Comps'),
+('60004188032', 'Danish Jain', '1234', 'Danish@gmail.com', 'Kandivali', 'Comps'),
+('60004188033', 'Hrithika Dodia', '1234', 'Hrithika@gmail.com', 'Borivali', 'Comps'),
+('60004188034', 'Harsh Mehta', '1234', 'Harsh@gmail.com', 'Dahisar', 'Comps'),
+('60004188035', 'Heeket Mehta', '1234', 'Heeket@gmail.com', 'Mira Road', 'Comps'),
+('60004188036', 'Arish Damania', '1234', 'Arish@gmail.com', 'Bhayandar', 'Comps'),
+('60004188037', 'Adit Kalyani', '1234', 'Adit@gmail.com', 'Naigaon', 'Comps'),
+('60004188038', 'Kalpesh Patil', '1234', 'Kalpesh@gmail.com', 'Vasai Road', 'Comps'),
+('60004188039', 'Jay Gala', '1234', 'Jay@gmail.com', 'Nala Sopara', 'Comps'),
+('60004188040', 'Aniruddha Das', '1234', 'Aniruddha@gmail.com', 'Virar', 'Comps'),
+('60004188041', 'Himanshu Tandel', '1234', 'Himanshu@gmail.com', 'valtarna', 'Comps'),
+('60004188042', 'Abhi Thummar', '1234', 'Abhi@gmail.com', 'Saphale', 'Comps'),
+('60004188043', 'Aniket Shahane', '1234', 'Aniket@gmail.com', 'Kelve Road', 'Comps'),
+('60004188044', 'Drashti Shah', '1234', 'Drashti@gmail.com', 'Palghar', 'Comps'),
+('60004188045', 'Devansh Shah', '1234', 'Devansh@gmail.com', 'Umroli', 'Comps'),
+('60004188046', 'Jigar Mav', '1234', 'Jigar@gmail.com', 'Boisar', 'Comps'),
+('60004188047', 'Shreya Pathak', '1234', 'Shreya@gmail.com', 'Vangaon', 'Comps'),
+('60004188048', 'Dev Savla', '1234', 'Dev@gmail.com', 'Dahanu Road', 'Comps'),
+('60004188049', 'Devansh Agarwal', '1234', 'Devansh@gmail.com', 'Badlapur', 'Comps'),
+('60004188050', 'Dhruv Patil', '1234', 'Dhruv@gmail.com', 'Thane', 'Comps'),
+('60004188051', 'Tanmai Prabhune', '1234', 'Tanmai@gmail.com', 'Malad', 'Comps');
 
 --
 -- Indexes for dumped tables
@@ -237,8 +286,7 @@ ALTER TABLE `student_profile`
 -- AUTO_INCREMENT for table `rail_concess`
 --
 ALTER TABLE `rail_concess`
-  MODIFY `rc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `rc_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
