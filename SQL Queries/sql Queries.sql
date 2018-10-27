@@ -43,8 +43,13 @@ IN student_password_ip varchar(255)
 
 BEGIN
 
-    IF(select * from student_profile where 
-       sap_id=sap_id_ip AND student_password=student_password_ip) THEN 
+    DECLARE ROW_COUNT INT;
+	
+    SET ROW_COUNT = (select count(*) from student_profile where 
+       sap_id=sap_id_ip AND student_password=student_password_ip)
+
+
+    IF(ROW_COUNT <> 0) THEN 
     
     	SELECT "true";
     ELSE
